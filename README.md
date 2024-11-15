@@ -5,12 +5,13 @@ Generate the application yml with the sentence
 
 #### bundle exec figaro i
 
-Add the follow information  
-DATABASE_HOST: localhost
-DATABASE_USER: your_database_user
-DATABASE_PASSWORD: your_database_password
-DATABASE_NAME: social_media
-DATABASE_PORT: "5432"
+Add the follow information:
+
+- DATABASE_HOST: localhost 
+- DATABASE_USER: your_database_user
+- DATABASE_PASSWORD: your_database_password
+- DATABASE_NAME: social_media
+- DATABASE_PORT: "5432"
 
 Then configure it in the database.yml
 
