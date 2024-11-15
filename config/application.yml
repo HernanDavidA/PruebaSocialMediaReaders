@@ -1,0 +1,5 @@
+DATABSE_HOST: localhost
+DATABASE_USER: postgres
+DATABASE_PASSWORD: hernan
+DATABASE_NAME: social_media
+DATABASE_PORT: "5432"

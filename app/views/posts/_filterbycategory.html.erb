@@ -1,0 +1,21 @@
+<%= form_with(url: posts_path, method: :get, local: true) do |form| %>
+  <div>
+    <%= form.label :category_id, "Filter by Category" %>
+    <%= form.select :category_id, options_for_select(@category.collect { |category| [category.title, category.id] }, params[:category_id]), { include_blank: "All Categories" }, { class: "form-control" } %>
+  </div>
+
+  <div>
+    <%= form.submit "Filter", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="posts-list">
+  <h1>Posts</h1>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h2><%= post.title %></h2>
+      <p><%= post.content %></p>
+      <p><strong>Category:</strong> <%= post.category.title %></p>
+    </div>
+  <% end %>
+</div>

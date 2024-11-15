@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Posts" %>
+
+<h1>Posts</h1>
+
+ <% if current_user %>
+  <p style="color: green">Hello <%= current_user.role%></p>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+  <%= link_to "Create Post", new_post_path %>
+
+<% if current_user.role == "admin" %>
+  <%= link_to "Create Category", new_category_path %>
+  <% @category.each do |category| %>
+    <%= render category %>
+    <%= link_to "Show this category", category %>
+  <% end %>
+<% end %>
+
+<div id="posts">
+  <%= render "filterbycategory"  %>
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+<% else %>
+  <p>Please <%= link_to "log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to view posts.</p>
+<% end %>
+
